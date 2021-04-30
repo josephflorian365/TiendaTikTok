@@ -8,48 +8,66 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <f:view contentType="text/html">
-            <h:head>
-                <f:facet name="first">
-                    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                    <title>PrimeFaces</title>
-                </f:facet>
-            </h:head>
+        <p:growl id="msj" showDetail="true" >
+            <p:autoUpdate/>
+        </p:growl>
+        <h:form>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Cliente"/>
+                <p:commandButton value="Nuevo" oncomplete="PF('wdlgDatos').show();"/>
+                <p:outputLabel value="Producto"/>
+                <p:commandButton value="Nuevo" oncomplete="PF('wdlgProductos').show();"/>
+            </p:panelGrid>
+        </h:form>
+        <p:dialog widgetVar="wdlgDatos" id="dlgDatos" modal="true">
+            <h:form>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Nombre "/>
+                    <p:inputText maxlength="30" placeholder="Escribe aqui" value="#{clienteC.cliente.NOMCLI}">
+                        <p:keyFilter regEx="/[A-Z_a-z_ñ_á_é_í_ó_ú_' ']/"/>
+                    </p:inputText>
+                    <p:outputLabel value="Apellido "/>
+                    <p:inputText maxlength="30" placeholder="Escribe aqui" value="#{clienteC.cliente.APECLI}">
+                        <p:keyFilter regEx="/[A-Z_a-z_ñ_á_é_í_ó_ú_' ']/"/>
+                    </p:inputText>
+                    <p:outputLabel value="Dni "/>
+                    <p:inputText maxlength="8" placeholder="Escribe aqui" value="#{clienteC.cliente.DNICLI}">
+                        <p:keyFilter regEx="/[0-9]/"/>
+                    </p:inputText>
+                    <p:commandButton value="Agregar" actionListener="#{clienteC.registrar()}"
+                                     title="Agregar"
+                                     oncomplete="if(!args.validationFailed)PF('wdlgDatos').hide();">
+                    </p:commandButton>
+                    <p:commandButton title="cancelar" value="Cancelar" immediate="true" oncomplete="PF('wdlgDatos').hide();" />
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                    </p:confirmDialog>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
 
-            <h:body>
-
-                <p:layout fullPage="true">
-
-                    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                        Header
-                    </p:layoutUnit>
-
-                    <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                        Footer
-                    </p:layoutUnit>
-
-                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
-                        <p:menu>
-                            <p:submenu label="Resources">
-                                <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
-                                <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
-                                <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
-                                <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
-
-                            </p:submenu>
-
-                        </p:menu>
-                    </p:layoutUnit>
-
-                    <p:layoutUnit position="center">
-                        Welcome to PrimeFaces
-                    </p:layoutUnit>
-
-                </p:layout>
-
-            </h:body>
-
-        </f:view>
+        <p:dialog widgetVar="wdlgProductos" id="dlgProductos" modal="true">
+            <h:form>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Nombre "/>
+                    <p:inputText maxlength="30" placeholder="Escribe aqui" value="#{productoC.producto.NOMPRO}">
+                        <p:keyFilter regEx="/[A-Z_a-z_ñ_á_é_í_ó_ú_' ']/"/>
+                    </p:inputText>
+                    <p:outputLabel value="Precio "/>
+                    <p:inputNumber value="#{productoC.producto.PREPRO}"/>
+                    <p:commandButton value="Agregar" actionListener="#{productoC.registrar()}"
+                                     title="Agregar"
+                                     oncomplete="if(!args.validationFailed)PF('wdlgProductos').hide();">
+                    </p:commandButton>
+                    <p:commandButton title="cancelar" value="Cancelar" immediate="true" oncomplete="PF('wdlgProductos').hide();" />
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                    </p:confirmDialog>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
     </h:body>
 </html>
 

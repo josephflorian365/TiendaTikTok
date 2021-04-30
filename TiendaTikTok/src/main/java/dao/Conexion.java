@@ -10,7 +10,7 @@ public class Conexion {
 
     public static Connection conectar() throws Exception {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/TiendaTikTok","root","");
 //            Class.forName("oracle.jdbc.pool.OracleDataSource");
 //            cnx = DriverManager.getConnection("jdbc:oracle:thin:@kalidaoracle1_tp?TNS_ADMIN=./wallet_KALIDAORACLE1", "ADMIN", "KalidaOracle1");
