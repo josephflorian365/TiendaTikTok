@@ -83,4 +83,12 @@ public class ClienteC{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public List<Cliente> getListaclientes() {
+        return listaclientes;
+    }
+
+    public void setListaclientes(List<Cliente> listaclientes) {
+        this.listaclientes = listaclientes;
+    }
 }

@@ -89,5 +89,5 @@ public class ClienteImpl extends Conexion implements CRUD<Cliente> {
         }
         return listado;
     }
-
+    
 }

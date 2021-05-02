@@ -70,4 +70,12 @@ public class ProductoC {
     public void setDao(ProductoImpl dao) {
         this.dao = dao;
     }
+
+    public List<Producto> getListaProductos() {
+        return listaProductos;
+    }
+
+    public void setListaProductos(List<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
+    }
 }

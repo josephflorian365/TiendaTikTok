@@ -17,6 +17,7 @@ public class Venta {
     private Date FECENTVEN;
     private Cliente cliente = new Cliente();
     private Integer TOTVEN;
+    private Boolean TOGGLESWICHT = false;
 
     public Venta() {
     }
@@ -67,6 +68,14 @@ public class Venta {
 
     public void setTOTVEN(Integer TOTVEN) {
         this.TOTVEN = TOTVEN;
+    }
+
+    public Boolean getTOGGLESWICHT() {
+        return TOGGLESWICHT;
+    }
+
+    public void setTOGGLESWICHT(Boolean TOGGLESWICHT) {
+        this.TOGGLESWICHT = TOGGLESWICHT;
     }
     
 }

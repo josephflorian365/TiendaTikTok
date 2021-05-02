@@ -1,5 +1,5 @@
 package dao;
 
-public class VentaImpl {
+public class VentaImpl extends Conexion{
     
 }
