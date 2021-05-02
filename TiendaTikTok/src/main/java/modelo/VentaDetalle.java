@@ -11,7 +11,6 @@ package modelo;
  */
 public class VentaDetalle {
 
-    private Integer IDVENDET;
     private Integer CANVENDET;
     private Double PREVENDET;
     private Integer IDPRO;
@@ -23,8 +22,7 @@ public class VentaDetalle {
     public VentaDetalle() {
     }
 
-    public VentaDetalle(Integer IDVENDET, Integer CANVENDET, Double PREVENDET, Integer IDPRO, Integer IDVEN, Producto producto, Venta venta,String NOMPRO) {
-        this.IDVENDET = IDVENDET;
+    public VentaDetalle(Integer CANVENDET, Double PREVENDET, Integer IDPRO, Integer IDVEN, Producto producto, Venta venta, String NOMPRO) {
         this.CANVENDET = CANVENDET;
         this.PREVENDET = PREVENDET;
         this.IDPRO = IDPRO;
@@ -33,20 +31,13 @@ public class VentaDetalle {
         this.venta = venta;
         this.NOMPRO = NOMPRO;
     }
+
     public Integer getCANVENDET() {
         return CANVENDET;
     }
 
     public void setCANVENDET(Integer CANVENDET) {
         this.CANVENDET = CANVENDET;
-    }
-
-    public Integer getIDVENDET() {
-        return IDVENDET;
-    }
-
-    public void setIDVENDET(Integer IDVENDET) {
-        this.IDVENDET = IDVENDET;
     }
 
     public Double getPREVENDET() {
@@ -97,5 +88,9 @@ public class VentaDetalle {
         this.NOMPRO = NOMPRO;
     }
 
-    
+    @Override
+    public String toString() {
+        return "VentaDetalle{" + "CANVENDET=" + CANVENDET + ", PREVENDET=" + PREVENDET + ", IDPRO=" + IDPRO + ", NOMPRO=" + NOMPRO + ", IDVEN=" + IDVEN + ", producto=" + producto + ", venta=" + venta + '}';
+    }
+
 }

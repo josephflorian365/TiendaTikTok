@@ -22,7 +22,7 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(Integer IDPRO, String NOMPRO, Double PREPRO, Date FECREGPRO,String ESTPRO) {
+    public Producto(Integer IDPRO, String NOMPRO, Double PREPRO, Date FECREGPRO, String ESTPRO) {
         this.IDPRO = IDPRO;
         this.NOMPRO = NOMPRO;
         this.PREPRO = PREPRO;
@@ -68,6 +68,11 @@ public class Producto {
 
     public void setESTPRO(String ESTPRO) {
         this.ESTPRO = ESTPRO;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" + "IDPRO=" + IDPRO + ", NOMPRO=" + NOMPRO + ", PREPRO=" + PREPRO + ", FECREGPRO=" + FECREGPRO + ", ESTPRO=" + ESTPRO + '}';
     }
 
 }

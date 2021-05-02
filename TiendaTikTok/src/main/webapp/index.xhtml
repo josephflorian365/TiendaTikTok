@@ -103,11 +103,11 @@
 
             </p:panelGrid>
             <p:commandButton value="Agregar" actionListener="#{ventaDetalleC.agregarFila()}" 
-                             update="frmVentDet,:tablaproducto" icon="fa fa-fw fa-floppy-o" />
+                             update="frmVentDet,:frmVentaDetalle" icon="fa fa-fw fa-floppy-o" />
         </h:form>
 
-        <h:form id="tablaproducto">
-            <p:dataTable var="vendet" id="tablaPro" value="#{ventaDetalleC.listaVentaDetalle}"
+        <h:form id="frmVentaDetalle">
+            <p:dataTable var="vendet" id="tablaVentaDetalle" value="#{ventaDetalleC.listaVentaDetalle}"
                          rows="5" paginator="true" 
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
@@ -120,12 +120,15 @@
                     <h:outputText value="#{vendet.CANVENDET}"/>
                 </p:column>
                 <p:column headerText="PRECIO VENTA">
-                    <h:outputText value="#{vendet.PREVENDET}"/>
+                    <h:outputText value="#{vendet.PREVENDET}">
+                        <f:convertNumber type="currency" currencySymbol="S/. " minFractionDigits="2"/>
+                    </h:outputText>
                 </p:column>
                 <p:column headerText="ELIMINAR" style="width: 80px" exportable="false">
-
+                    <p:commandButton icon="fa fa-fw fa-times" actionListener="${ventaDetalleC.eliminarFila(vendet)}"
+                                     update="frmVentaDetalle">
+                    </p:commandButton>
                 </p:column>
-
             </p:dataTable>
 
         </h:form>

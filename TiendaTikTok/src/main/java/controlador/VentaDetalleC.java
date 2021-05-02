@@ -11,7 +11,7 @@ import modelo.VentaDetalle;
 
 @Named(value = "ventaDetalleC")  //ManagedBean
 @SessionScoped
-public class VentaDetalleC implements Serializable{
+public class VentaDetalleC implements Serializable {
 
     private List<VentaDetalle> listaVentaDetalle;
     private VentaDetalleImpl dao;
@@ -26,15 +26,27 @@ public class VentaDetalleC implements Serializable{
     public void agregarFila() {
         try {
             VentaDetalle ventadet = dao.agregarFila(ventadetalle.getProducto().getIDPRO());
+            ventadet.setIDPRO(this.ventadetalle.getProducto().getIDPRO());
             ventadet.setCANVENDET(this.ventadetalle.getCANVENDET());
-            ventadet.setPREVENDET((ventadet.getProducto().getPREPRO()+0.50)*this.ventadetalle.getCANVENDET() );
+            ventadet.setPREVENDET((ventadet.getProducto().getPREPRO() + 0.50) * this.ventadetalle.getCANVENDET());
             ventadet.setNOMPRO(ventadet.getProducto().getNOMPRO());
             this.listaVentaDetalle.add(ventadet);
             ventadetalle = new VentaDetalle();
+            for (VentaDetalle ventaDetalle : listaVentaDetalle) {
+                System.out.println(ventaDetalle);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void eliminarFila(VentaDetalle v) {
+        try {
+            listaVentaDetalle.remove(v);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public List<VentaDetalle> getListaVentaDetalle() {
@@ -58,5 +70,5 @@ public class VentaDetalleC implements Serializable{
         i.add(1);
         System.out.println(i);
     }
-    
+
 }
