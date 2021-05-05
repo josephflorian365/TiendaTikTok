@@ -16,13 +16,14 @@ public class VentaDetalle {
     private Integer IDPRO;
     private String NOMPRO;
     private Integer IDVEN;
+    private String NOMCLI;
     private Producto producto = new Producto();
     private Venta venta = new Venta();
 
     public VentaDetalle() {
     }
 
-    public VentaDetalle(Integer CANVENDET, Double PREVENDET, Integer IDPRO, Integer IDVEN, Producto producto, Venta venta, String NOMPRO) {
+    public VentaDetalle(Integer CANVENDET, Double PREVENDET, Integer IDPRO, Integer IDVEN, Producto producto, Venta venta, String NOMPRO, String NOMCLI) {
         this.CANVENDET = CANVENDET;
         this.PREVENDET = PREVENDET;
         this.IDPRO = IDPRO;
@@ -30,6 +31,7 @@ public class VentaDetalle {
         this.producto = producto;
         this.venta = venta;
         this.NOMPRO = NOMPRO;
+        this.NOMCLI = NOMCLI;
     }
 
     public Integer getCANVENDET() {
@@ -91,6 +93,14 @@ public class VentaDetalle {
     @Override
     public String toString() {
         return "VentaDetalle{" + "CANVENDET=" + CANVENDET + ", PREVENDET=" + PREVENDET + ", IDPRO=" + IDPRO + ", NOMPRO=" + NOMPRO + ", IDVEN=" + IDVEN + ", producto=" + producto + ", venta=" + venta + '}';
+    }
+
+    public String getNOMCLI() {
+        return NOMCLI;
+    }
+
+    public void setNOMCLI(String NOMCLI) {
+        this.NOMCLI = NOMCLI;
     }
 
 }

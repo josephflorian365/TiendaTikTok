@@ -48,18 +48,18 @@ public class ProductoImpl extends Conexion implements CRUD<Producto>{
     @Override
     public List<Producto> listar() throws Exception {
          List<Producto> listado = new ArrayList<>();
-        Producto cli;
+        Producto pro;
         String sql = "SELECT IDPRO,NOMPRO,PREPRO,FECREGPRO FROM PRODUCTO WHERE ESTPRO = 'A'";
         try {
             Statement st = this.conectar().createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                cli = new Producto();
-                cli.setIDPRO(rs.getInt("IDPRO"));
-                cli.setNOMPRO(rs.getString("NOMPRO"));
-                cli.setPREPRO(rs.getDouble("PREPRO"));
-                cli.setFECREGPRO(rs.getDate("FECREGPRO"));
-                listado.add(cli);
+                pro = new Producto();
+                pro.setIDPRO(rs.getInt("IDPRO"));
+                pro.setNOMPRO(rs.getString("NOMPRO"));
+                pro.setPREPRO(rs.getDouble("PREPRO"));
+                pro.setFECREGPRO(rs.getDate("FECREGPRO"));
+                listado.add(pro);
             }
             rs.close();
             st.close();

@@ -5,7 +5,10 @@
  */
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
+import javax.validation.constraints.Future;
+
+
 
 /**
  *
@@ -16,13 +19,13 @@ public class Venta {
     private Date FECVEN;
     private Date FECENTVEN;
     private Cliente cliente = new Cliente();
-    private Integer TOTVEN;
+    private Double TOTVEN;
     private Boolean TOGGLESWICHT = false;
 
     public Venta() {
     }
 
-    public Venta(Integer IDVEN, Date FECVEN, Date FECENTVEN, Integer TOTVEN, Cliente cliente) {
+    public Venta(Integer IDVEN, Date FECVEN, Date FECENTVEN, Double TOTVEN, Cliente cliente) {
         this.IDVEN = IDVEN;
         this.FECVEN = FECVEN;
         this.FECENTVEN = FECENTVEN;
@@ -62,11 +65,11 @@ public class Venta {
         this.cliente = cliente;
     }
 
-    public Integer getTOTVEN() {
+    public Double getTOTVEN() {
         return TOTVEN;
     }
 
-    public void setTOTVEN(Integer TOTVEN) {
+    public void setTOTVEN(Double TOTVEN) {
         this.TOTVEN = TOTVEN;
     }
 
